@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun Karthika</title>
+  <link rel="icon" type="image/png" href="images/love.png"/>
+  <style>
+.loadingScreen {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+<script>
+    var interval = setInterval(myURL, 5000);
+var result = document.getElementById("result");
+result.innerHTML = "<b> The page will redirect after delay of 2.5 seconds setInterval() method.";
+
+function myURL() {
+    document.location.href = 'index.html';
+    clearInterval(interval);
+}
+</script>
+<body>
+    <body>
+        <div class="loadingScreen">
+          <img src="images/load.gif" alt="heart" />
+        </div>
+</body>
+</html>
