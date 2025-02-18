@@ -45,27 +45,61 @@
       align-items: center;
       flex-direction: column;
       z-index: 1;
+      perspective: 1000px;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 80%;
+      max-width: 600px;
+      height: auto;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
     }
     .ring {
       width: 100px;
-      margin-bottom: 20px;
-    }
-    .weeding {
-      width: 80%;
-      max-width: 600px;
       margin-bottom: 20px;
     }
     .spotify {
       width: 150px;
     }
   </style>
+  <script>
+    function flipCard() {
+      const card = document.querySelector('.flip-card-inner');
+      card.style.transform = card.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+    }
+  </script>
 </head>
 <body>
   <div class="container" oncontextmenu="return false";>
     <a href="load1.html" target="blank">
       <img src="images/rings.png" class="ring" oncontextmenu="return false";>
     </a>
-    <img src="images/weeding.png" class="weeding" oncontextmenu="return false";>
+    <div class="flip-card" onclick="flipCard()">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/weeding.png" class="weeding" oncontextmenu="return false";>
+        </div>
+        <div class="flip-card-back">
+          <img src="images/gpay.png" class="weeding" oncontextmenu="return false";>
+        </div>
+      </div>
+    </div>
     <a href="https://open.spotify.com/track/5gpjup3L76P6ZNMu44eCyG" target="blank">
       <img class="spotify" src="images/qrcode.png" alt="images/qrcode.png" oncontextmenu="return false";/>
     </a>
