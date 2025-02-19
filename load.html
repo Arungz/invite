@@ -36,6 +36,8 @@
       bottom: 0;
       min-width: 100%;
       min-height: 100%;
+      width: auto;
+      height: auto;
       z-index: -1; /* Ensure video stays in the background */
     }
     .container {
@@ -97,6 +99,18 @@
       height: auto; /* Maintain aspect ratio */
       display: flex;
       align-items: center;
+    }
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .flip-card {
+        width: 100%;
+      }
+      .weeding {
+        max-width: 80%;
+      }
     }
   </style>
 </head>
