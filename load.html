@@ -5,8 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arun Karthika</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/love.png"/>
-  <video autoplay muted loop id="myVideo" oncontextmenu="return false"; >
+  <video autoplay muted loop id="myVideo" oncontextmenu="return false">
     <source src="video/Heart.mp4" type="video/mp4">
   </video>
   
@@ -16,7 +17,7 @@
       -ms-user-select: none;
       user-select: none;
       background-color: #000000;
-      font-family: 'Lora';
+      font-family: 'Lora', serif;
       font-size: 17px;
       line-height: 1.5;
       display: flex;
@@ -24,6 +25,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      overflow: hidden; /* Prevent scrolling */
     }
     video {
       -webkit-user-select: none;
@@ -34,6 +36,7 @@
       bottom: 0;
       min-width: 100%;
       min-height: 100%;
+      z-index: -1; /* Ensure video stays in the background */
     }
     .container {
       position: relative;
@@ -54,10 +57,14 @@
       height: auto;
       margin-bottom: 20px;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .flip-card-inner {
       position: relative;
       width: 100%;
+      height: 100%;
       text-align: center;
       transition: transform 0.6s;
       transform-style: preserve-3d;
@@ -65,12 +72,16 @@
     .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .flip-card-front {
-      transform: rotateY(180deg);
+      transform: rotateY(0deg);
     }
-      
     .flip-card-back {
       transform: rotateY(180deg);
     }
@@ -82,38 +93,39 @@
       width: 150px;
     }
     .weeding {
-      width: 80%;
-      max-width: 600px;
-      margin-bottom: 20px;
+      max-width: 100%; /* Ensure image scales properly */
+      height: auto; /* Maintain aspect ratio */
+      display: block; /* Remove extra space below image */
     }
   </style>
-  <script>
-    function flipCard() {
-      const card = document.querySelector('.flip-card-inner');
-      card.style.transform = card.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
-    }
-  </script>
 </head>
 <body>
-  <div class="container" oncontextmenu="return false";>
-    <a href="load1.html" target="blank">
-      <video autoplay muted loop id="myVideo1" oncontextmenu="return false"; >
-    <source src="video/ring.mp4" type="video/mp4">
-  </video>
+  <div class="container" oncontextmenu="return false">
+    <a href="load1.html" target="_blank">
+      <img src="images/rings.png" class="ring" oncontextmenu="return false">
     </a>
     <div class="flip-card" onclick="flipCard()">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="images/weeding.png" class="weeding" oncontextmenu="return false";>
+          <img src="images/weeding.png" class="weeding" oncontextmenu="return false">
         </div>
-        <div class="flip-card-back" onclick="flipCard()">
-          <img src="images/gpay.png" class="weeding" oncontextmenu="return false";>
+        <div class="flip-card-back">
+          <img src="images/gpay.png" class="weeding" oncontextmenu="return false">
         </div>
       </div>
     </div>
-    <a href="https://open.spotify.com/track/5gpjup3L76P6ZNMu44eCyG" target="blank">
-      <img class="spotify" src="images/qrcode.png" alt="images/qrcode.png" oncontextmenu="return false";/>
+    <a href="https://open.spotify.com/track/5gpjup3L76P6ZNMu44eCyG" target="_blank">
+      <img class="spotify" src="images/qrcode.png" alt="Spotify QR Code" oncontextmenu="return false">
     </a>
   </div>
+
+  <script>
+    function flipCard() {
+      const card = document.querySelector('.flip-card-inner');
+      card.style.transform = card.style.transform === 'rotateY(180deg)' 
+        ? 'rotateY(0deg)' 
+        : 'rotateY(180deg)';
+    }
+  </script>
 </body>
 </html>
